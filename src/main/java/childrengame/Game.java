@@ -70,7 +70,7 @@ public class Game {
     private static int removeChild(ArrayList<Integer> childrenInCircle, StringBuilder resultsOfGame, int startingIndex, int removeAt) {
         if (childrenInCircle.size() == 1) {
             int winner = childrenInCircle.remove(ZERO);
-            logger.info("Winner: {}", winner);
+            logger.debug("Winner: {}", winner);
             resultsOfGame.append(", Winner: ").append(winner);
             return winner;
         } else {
@@ -81,7 +81,7 @@ public class Game {
 
                 if (count == removeAt) {
                     int removedChildId = childrenInCircle.remove(childIndex);
-                    logger.info("Removed: {}", removedChildId);
+                    logger.debug("Removed: {}", removedChildId);
                     resultsOfGame.append(EMPTY_SPACE).append(removedChildId);
                     if (childIndex < childrenInCircle.size()) {
                         return removeChild(childrenInCircle, resultsOfGame, childIndex, removeAt);
